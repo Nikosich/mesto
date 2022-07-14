@@ -1,0 +1,24 @@
+.popup {
+  width: 430px;
+  height: 330px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter','Arial','Sanas-serif';
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: fixed;
+  border-radius: 10px;
+  top: 195px;
+  left: auto;
+  right: auto;
+  display: none;
+}
+@media screen and (max-width:768px) {
+  .popup{
+    width: 282px;
+    height: 322px;
+    top: 123px;
+  }
+}

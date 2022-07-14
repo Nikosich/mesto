@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Места России" />
-    <meta name="keywords" content="путешествия, Россия, Байкал" />
-    <meta name="author" content="Никола Косич" />
-    <link rel="stylesheet" href="pages/index.css"/>
-    <title>Mesto</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Места России" />
+  <meta name="keywords" content="путешествия, Россия, Байкал" />
+  <meta name="author" content="Никола Косич" />
+  <link rel="stylesheet" href="pages/index.css"/>
+  <title>Mesto</title>
 </head>
 <body class="page">
 <section class="header">
  <img class="header__logo" src="images/dev.svg">
 </section>
+<main class="content">
+  <section class="profile">
+    <div class="profile__container">
+        <img class="profile__image" src="images/image.png">
+      <div class="profile__info">
+        <div class="profile__item">
+          <h1 class="profile__name">Жак-Ив Кусто</h1> <button type="button" class="edit-button button"></button>
+        </div>
+          <p class="profile__profession">Исследователь океана</p>
+      </div>
+    </div>
+    <button class="add-button button">
+    </button>
+  </section>
+</main>
+<form class="popup">
+  <button type="button" class="popup__close-button button"></button>
+  <h2 class="popup__header">Редактировать профиль</h2>
+  <input class="popup__name" type="text" value="Жак-Ив Кусто">
+  <input class="popup__job" type="text" value="Исследователь океана">
+  <input class="popup__save-button" type="submit" value="Сохранить">
+</form>
+<script type="text/javascript" src="scripts/script.js"></script>
 </body>
 </html>

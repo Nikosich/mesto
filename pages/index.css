@@ -1,18 +1,24 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
-.page {
-  max-width: 1280px;
-  background-color: #000000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  font-family: 'Inter','Arial','Sanas-serif';
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.header {
-  width: calc(100% - 400px);
-  margin-top: 40px;
-}
+@import url(../blocks/page/page.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/content/content.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__item/profile__item.css);
+@import url(../blocks/profile/__image/profile__image.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__profession/profile__profession.css);
+@import url(../blocks/edit-button/edit-button.css);
+@import url(../blocks/add-button/add-button.css);
+@import url(../blocks/profile/__container/profile__container.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__header/popup__header.css);
+@import url(../blocks/popup/__save-button/popup__save-button.css);
+@import url(../blocks/popup/__job/popup__job.css);
+@import url(../blocks/popup/__name/popup__name.css);
+@import url(../blocks/popup/__open/popup__open.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/button/button.css);
