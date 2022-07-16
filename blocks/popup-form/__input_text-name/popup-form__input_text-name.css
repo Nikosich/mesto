@@ -1,4 +1,4 @@
-.popup-form__input_text_name {
+.popup-form__input_text-name {
   width: calc(100% - 36px*2);
   align-self: center;
   padding: 0;
@@ -12,7 +12,7 @@
   margin-bottom: 30px;
 }
 @media screen and (max-width:768px) {
-  .popup-form__input_text_name {
+  .popup-form__input_text-name {
   width: calc(100% - 22px*2);
   font-size: 14px;
   line-height: 17px;
