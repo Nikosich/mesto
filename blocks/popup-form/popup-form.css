@@ -2,7 +2,6 @@
   width: 430px;
   height: 330px;
   background-color: white;
-  display: flex;
   flex-direction: column;
   font-family: 'Inter','Arial','Sanas-serif';
   font-style: normal;
