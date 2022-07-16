@@ -1,4 +1,4 @@
-.popup__header {
+.popup-form__header {
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -7,7 +7,7 @@
 
 }
 @media screen and (max-width:768px) {
-  .popup__header {
+  .popup-form__header {
   margin: 25px 0 75px 22px;
   font-size: 18px;
   line-height: 22px;}

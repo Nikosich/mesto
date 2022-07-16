@@ -1,0 +1,21 @@
+.popup-form__input_text_job {
+  width: calc(100% - 36px*2);
+  align-self: center;
+  padding: 0;
+  padding-bottom: 13px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  border: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 48px;
+}
+@media screen and (max-width: 768px) {
+  .popup-form__input_text_job {
+    margin-bottom: 45px;
+    width: calc(100% - 22px*2);
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

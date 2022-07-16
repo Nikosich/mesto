@@ -1,4 +1,4 @@
-.popup {
+.popup-form {
   width: 430px;
   height: 330px;
   background-color: white;
@@ -16,7 +16,7 @@
   display: none;
 }
 @media screen and (max-width:768px) {
-  .popup{
+  .popup-form{
     width: 282px;
     height: 322px;
     top: 123px;

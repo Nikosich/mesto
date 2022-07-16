@@ -1,4 +1,4 @@
-.popup__close-button {
+.popup-form__close-button {
   background-image: url(../../../images/CloseIcon.png);
   width: 32px;
   height: 32px;
@@ -10,7 +10,7 @@
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
-  .popup__close-button {
+  .popup-form__close-button {
     width: 20px;
     height: 20px;
     right: 0;
