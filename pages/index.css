@@ -28,3 +28,5 @@
 @import url(../blocks/places/__item-name/places__item-name.css);
 @import url(../blocks/places/__item/places__item.css);
 @import url(../blocks/places/__name/places__name.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
