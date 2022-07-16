@@ -1,59 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Места России" />
-  <meta name="keywords" content="путешествия" />
-  <meta name="author" content="Никола Косич" />
-  <link rel="stylesheet" href="pages/index.css"/>
-  <title>Mesto</title>
-</head>
-<body class="page">
-<section class="header">
- <img class="header__logo" src="images/dev.svg">
-</section>
-<main class="content">
-  <section class="profile">
-    <div class="profile__container">
-        <img class="profile__image" src="images/image.png">
-      <div class="profile__info">
-        <div class="profile__item">
-          <h1 class="profile__name">Жак-Ив Кусто</h1> <button type="button" class="edit-button button"></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Места России" />
+    <meta name="keywords" content="путешествия" />
+    <meta name="author" content="Никола Косич" />
+    <link rel="stylesheet" href="pages/index.css" />
+    <title>Mesto</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" src="images/dev.svg" alt="logo" />
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__container">
+          <img class="profile__image" src="images/image.png" alt="Кусто" />
+          <div class="profile__info">
+            <div class="profile__item">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button type="button" class="edit-button button"></button>
+            </div>
+            <p class="profile__profession">Исследователь океана</p>
+          </div>
         </div>
-          <p class="profile__profession">Исследователь океана</p>
-      </div>
-    </div>
-    <button class="add-button button">
-    </button>
-  </section>
-  <section class="places">
-    <ul class="places__container">
-      <li class="places__item">
-        <image class="places__image" src="Images/Belgrade-unsplash.jpg"></image>
-        <div class="places__item-name"><h2 class="places__name">Belgrade</h2><button disabled type="button" class="like-button"></button></div></li>
-      </li>
-      <li class="places__item"><image class="places__image" src="images/hradec králové- unsplash.jpg"></image>
-        <div class="places__item-name"><h2 class="places__name">Hradec králové</h2><button disabled type="button" class="like-button"></button></div></li>
-      <li class="places__item"><image class="places__image" src="Images/Mokra Gora-unsplash.jpg"></image>
-        <div class="places__item-name"><h2 class="places__name">Mkra Gora</h2><button disabled type="button" class="like-button"></button></div></li>
-      <li class="places__item"><image class="places__image" src="Images/Prague -unsplash.jpg"></image>
-        <div class="places__item-name"><h2 class="places__name">Prague</h2><button disabled type="button" class="like-button"></button></div></li></li>
-      <li class="places__item"><image class="places__image" src="Images/Travnik-unsplash.jpg"></image>
-        <div class="places__item-name"><h2 class="places__name">Travnik</h2><button disabled type="button" class="like-button"></button></div></li></li>
-      <li class="places__item"><image class="places__image" src="Images/Zenica-unsplash.jpg"></image>
-        <div class="places__item-name"><h2 class="places__name">Zenica</h2><button disabled type="button" class="like-button"></button></div></li></li>
-    </ul>
-  </section>
-</main>
-<form class="popup-form">
-  <button type="button" class="popup-form__close-button button"></button>
-  <h2 class="popup-form__header">Редактировать профиль</h2>
-  <input class="popup-form__input_text_name" type="text" value="Жак-Ив Кусто">
-  <input class="popup-form__input_text_job" type="text" value="Исследователь океана">
-  <input class="popup-form__save-button" type="submit" value="Сохранить">
-</form>
-<footer class="footer"><p class="footer__text">&copy; 2020 Mesto Russia</p></footer>
-<script type="text/javascript" src="scripts/index.js"></script>
-</body>
+        <button class="add-button button"></button>
+      </section>
+      <section class="places">
+        <ul class="places__container">
+          <li class="places__item">
+            <img
+              class="places__image"
+              src="Images/belgrade.jpg"
+              alt="Белград"
+            />
+            <div class="places__item-name">
+              <h2 class="places__name">Belgrade</h2>
+              <button disabled type="button" class="like-button"></button>
+            </div>
+          </li>
+          <li class="places__item">
+            <img
+              class="places__image"
+              src="images/hradeckralove.jpg"
+              alt="Храдец"
+            />
+            <div class="places__item-name">
+              <h2 class="places__name">Hradec králové</h2>
+              <button disabled type="button" class="like-button"></button>
+            </div>
+          </li>
+          <li class="places__item">
+            <img
+              class="places__image"
+              src="Images/mokraGora.jpg"
+              alt="Мокра гора"
+            />
+            <div class="places__item-name">
+              <h2 class="places__name">Mkra Gora</h2>
+              <button disabled type="button" class="like-button"></button>
+            </div>
+          </li>
+          <li class="places__item">
+            <img class="places__image" src="Images/prague.jpg" alt="Прага" />
+            <div class="places__item-name">
+              <h2 class="places__name">Prague</h2>
+              <button disabled type="button" class="like-button"></button>
+            </div>
+          </li>
+          <li class="places__item">
+            <img class="places__image" src="Images/travnik.jpg" alt="Травник" />
+            <div class="places__item-name">
+              <h2 class="places__name">Travnik</h2>
+              <button disabled type="button" class="like-button"></button>
+            </div>
+          </li>
+          <li class="places__item">
+            <img class="places__image" src="Images/zenica.jpg" alt="Зеница" />
+            <div class="places__item-name">
+              <h2 class="places__name">Zenica</h2>
+              <button disabled type="button" class="like-button"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <form class="popup-form">
+      <button type="button" class="popup-form__close-button button"></button>
+      <h2 class="popup-form__header">Редактировать профиль</h2>
+      <input
+        class="popup-form__input_text_name"
+        type="text"
+        value="Жак-Ив Кусто"
+      />
+      <input
+        class="popup-form__input_text_job"
+        type="text"
+        value="Исследователь океана"
+      />
+      <input class="popup-form__save-button" type="submit" value="Сохранить" />
+    </form>
+    <footer class="footer">
+      <p class="footer__text">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>
