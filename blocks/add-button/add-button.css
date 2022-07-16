@@ -14,5 +14,6 @@
     .add-button {
       width: 282px;
       background-image: url(../../images/AddButton2.svg);
+      background-size: contain;
     }
   }
