@@ -1,0 +1,10 @@
+.popup-form__fade {
+  position:fixed;
+  width:100%;
+  height: 100%;
+  display: none;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}

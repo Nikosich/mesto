@@ -1,4 +1,4 @@
-const popup = document.querySelector(".popup-form");
+const popup = document.querySelector(".popup-form__fade");
 const popupBtn = document.querySelector(".edit-button");
 const popupClose = document.querySelector (".popup-form__close-button");
 const nameInput = document.querySelector (".popup-form__input_text-name");

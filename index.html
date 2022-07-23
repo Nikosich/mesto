@@ -25,14 +25,14 @@
             <p class="profile__profession">Исследователь океана</p>
           </div>
         </div>
-        <button class="add-button button"></button>
+        <button class="add-button button" type="button"></button>
       </section>
       <section class="places">
         <ul class="places__container">
           <li class="places__item">
             <img
               class="places__image"
-              src="Images/belgrade.jpg"
+              src="./images/belgrade.jpg"
               alt="Белград"
             />
             <div class="places__item-name">
@@ -43,7 +43,7 @@
           <li class="places__item">
             <img
               class="places__image"
-              src="images/hradeckralove.jpg"
+              src="./images/hradeckralove.jpg"
               alt="Храдец"
             />
             <div class="places__item-name">
@@ -54,7 +54,7 @@
           <li class="places__item">
             <img
               class="places__image"
-              src="Images/mokraGora.jpg"
+              src="./images/mokraGora.jpg"
               alt="Мокра гора"
             />
             <div class="places__item-name">
@@ -63,21 +63,21 @@
             </div>
           </li>
           <li class="places__item">
-            <img class="places__image" src="Images/prague.jpg" alt="Прага" />
+            <img class="places__image" src="./images/prague.jpg" alt="Прага" />
             <div class="places__item-name">
               <h2 class="places__name">Prague</h2>
               <button disabled type="button" class="like-button"></button>
             </div>
           </li>
           <li class="places__item">
-            <img class="places__image" src="Images/travnik.jpg" alt="Травник" />
+            <img class="places__image" src="./images/travnik.jpg" alt="Травник" />
             <div class="places__item-name">
               <h2 class="places__name">Travnik</h2>
               <button disabled type="button" class="like-button"></button>
             </div>
           </li>
           <li class="places__item">
-            <img class="places__image" src="Images/zenica.jpg" alt="Зеница" />
+            <img class="places__image" src="./images/zenica.jpg" alt="Зеница" />
             <div class="places__item-name">
               <h2 class="places__name">Zenica</h2>
               <button disabled type="button" class="like-button"></button>
@@ -86,21 +86,30 @@
         </ul>
       </section>
     </main>
-    <form class="popup-form">
-      <button type="button" class="popup-form__close-button button"></button>
-      <h2 class="popup-form__header">Редактировать профиль</h2>
-      <input
-        class="popup-form__input_text-name popup-form__input"
-        type="text"
-        value="Жак-Ив Кусто"
-      />
-      <input
-        class="popup-form__input_text-job popup-form__input"
-        type="text"
-        value="Исследователь океана"
-      />
-      <input class="popup-form__save-button" type="submit" value="Сохранить" />
-    </form>
+    <div class="popup-form__fade">
+      <div class="popup-form__modal-window">
+        <form class="popup-form">
+          <button
+            type="button"
+            class="popup-form__close-button button"
+          ></button>
+          <h2 class="popup-form__header">Редактировать профиль</h2>
+          <input
+            class="popup-form__input_text-name popup-form__input"
+            type="text"
+            value="Жак-Ив Кусто"
+          />
+          <input
+            class="popup-form__input_text-job popup-form__input"
+            type="text"
+            value="Исследователь океана"
+          />
+          <button class="popup-form__save-button" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
     <footer class="footer">
       <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
