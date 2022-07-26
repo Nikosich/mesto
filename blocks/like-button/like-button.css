@@ -12,7 +12,6 @@
 .like-button:hover {
   opacity: 0.5;
   cursor: pointer;
-  transition: 2s ease-in-out;
 }
 .like-button:active {
   fill:black;

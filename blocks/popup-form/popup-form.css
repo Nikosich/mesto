@@ -1,10 +1,10 @@
 .popup-form {
   display:flex;
   width: 430px;
-  height: 330px;
+  padding-bottom: 37px;
   background-color: white;
   flex-direction: column;
-  font-family: 'Inter','Arial','Sanas-serif';
+  font-family: 'Inter','Arial','Sans-serif';
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,7 +13,7 @@
 @media screen and (max-width:768px) {
   .popup-form{
     width: 282px;
-    height: 322px;
+    padding-bottom: 25px;
     top: 123px;
   }
 }

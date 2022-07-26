@@ -9,11 +9,11 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  border: none;
 }
 .popup-form__save-button:hover {
   opacity: 0.8;
   cursor: pointer;
-  transition: 2s ease-in-out;
 }
 @media screen and (max-width:768px) {
   .popup-form__save-button {
