@@ -1,7 +1,7 @@
 .header {
   width: calc(100% - 400px);
   padding-top: 40px;
-  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   padding-bottom: 41px;
 }
 @media screen and (max-width:1152px) {
@@ -17,7 +17,7 @@
 }
 @media screen and (max-width:768px) {
   .header{
-    width: (100% - 54px);
+    width: calc(100% - 54px);
     padding-bottom: 31px;
   }
 }
