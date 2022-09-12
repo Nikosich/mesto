@@ -37,88 +37,6 @@
       </section>
       <section class="places">
         <ul class="places__container">
-          <li class="places__item">
-            <img
-              class="places__image"
-              src="./images/belgrade.jpg"
-              alt="Белград"
-            />
-            <div class="places__item-name">
-              <h2 class="places__name">Belgrade</h2>
-              <button
-                type="button"
-                class="like-button"
-                aria-label="нравится"
-              ></button>
-            </div>
-          </li>
-          <li class="places__item">
-            <img
-              class="places__image"
-              src="./images/hradeckralove.jpg"
-              alt="Храдец"
-            />
-            <div class="places__item-name">
-              <h2 class="places__name">Hradec králové</h2>
-              <button
-                type="button"
-                class="like-button"
-                aria-label="нравится"
-              ></button>
-            </div>
-          </li>
-          <li class="places__item">
-            <img
-              class="places__image"
-              src="./images/mokraGora.jpg"
-              alt="Мокра гора"
-            />
-            <div class="places__item-name">
-              <h2 class="places__name">Mkra Gora</h2>
-              <button
-                type="button"
-                class="like-button"
-                aria-label="нравится"
-              ></button>
-            </div>
-          </li>
-          <li class="places__item">
-            <img class="places__image" src="./images/prague.jpg" alt="Прага" />
-            <div class="places__item-name">
-              <h2 class="places__name">Prague</h2>
-              <button
-                type="button"
-                class="like-button"
-                aria-label="нравится"
-              ></button>
-            </div>
-          </li>
-          <li class="places__item">
-            <img
-              class="places__image"
-              src="./images/travnik.jpg"
-              alt="Травник"
-            />
-            <div class="places__item-name">
-              <h2 class="places__name">Travnik</h2>
-              <button
-                type="button"
-                class="like-button"
-                aria-label="нравится"
-              ></button>
-            </div>
-          </li>
-          <li class="places__item">
-            <img class="places__image" src="./images/zenica.jpg" alt="Зеница" />
-            <div class="places__item-name">
-              <h2 class="places__name">Zenica</h2>
-              <button
-                type="button"
-                class="like-button"
-                aria-label="нравится"
-              ></button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -139,6 +57,30 @@
             class="popup-form__input_text_job popup-form__input"
             type="text"
             placeholder="О себе"
+          />
+          <button class="popup-form__save-button" type="submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="popup_add-photo">
+      <div class="popup__modal-window">
+        <button
+          type="button"
+          class="popup__close-button button popup_close-button_place"
+        ></button>
+        <form class="popup-form" name="photoForm" method="post">
+          <h2 class="popup-form__header">Новое место</h2>
+          <input
+            class="popup-form__input_place_name popup-form__input"
+            type="text"
+            placeholder="Название"
+          />
+          <input
+            class="popup-form__input_link_photo popup-form__input"
+            type="link"
+            placeholder="Ссылка на картинку"
           />
           <button class="popup-form__save-button" type="submit">
             Сохранить
