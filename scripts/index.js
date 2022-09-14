@@ -12,6 +12,8 @@ const placeName = document.querySelector (".popup-form__input_place_name");
 const placeLink = document.querySelector (".popup-form__input_link_photo");
 const placeForm = popupPlace.querySelector(".popup-form");
 const list = document.querySelector(".places__container");
+const placeTemplate = document.querySelector('#place-item-template');
+const placeTemplateitem = placeTemplate.content.children[0];
 const initialCards = [
   {
     name: 'Белград',
@@ -72,27 +74,18 @@ function formSubmitHandler (evt) {
 popup.addEventListener('submit', formSubmitHandler);
 
 function addPlace(name, link) {
-  const template = `<li class="places__item">
-  <button
-    type="button"
-    class="delete-button"
-    arial-label="удалить"
-  ></button>
-  <img
-    class="places__image"
-    src="${link}"
-    alt="${name}"
-  />
-  <div class="places__item-name">
-    <h2 class="places__name">${name}</h2>
-    <button
-      type="button"
-      class="like-button"
-      aria-label="нравится"
-    ></button>
-  </div>
-</li>`
-  list.insertAdjacentHTML("afterbegin", template)
+  const placeElement = placeTemplateitem.cloneNode(true);
+  const placeNaming = placeElement.querySelector('.places__name');
+  const placePhoto = placeElement.querySelector('.places__image');
+  const placeDlt = placeElement.querySelector('.delete-button');
+  const placeLike = placeElement.querySelector('.like-button');
+  placeNaming.textContent = name;
+  placePhoto.src = link;
+  placePhoto.alt = name;
+  placeDlt.addEventListener('click', function(){
+    placeElement.remove()
+  })
+  list.prepend(placeElement);
 }
 
 function addEventListener() {
@@ -109,5 +102,6 @@ function createinitialCards() {
   initialCards.map(function(el){
     addPlace(el.name, el.link);
   })
-}
-createinitialCards()
+};
+createinitialCards();
+

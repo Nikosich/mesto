@@ -36,8 +36,7 @@
         ></button>
       </section>
       <section class="places">
-        <ul class="places__container">
-        </ul>
+        <ul class="places__container"></ul>
       </section>
     </main>
     <footer class="footer">
@@ -88,6 +87,24 @@
         </form>
       </div>
     </div>
-    <script src="scripts/index.js"></script>
+    <script src="scripts/index.js" defer></script>
+    <template id="place-item-template">
+      <li class="places__item">
+        <button
+          type="button"
+          class="delete-button"
+          arial-label="удалить"
+        ></button>
+        <img class="places__image" src="" alt="" />
+        <div class="places__item-name">
+          <h2 class="places__name"></h2>
+          <button
+            type="button"
+            class="like-button"
+            aria-label="нравится"
+          ></button>
+        </div>
+      </li>
+    </template>
   </body>
 </html>
