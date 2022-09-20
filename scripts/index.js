@@ -1,3 +1,4 @@
+const doc = document;
 const popup = document.querySelector(".popup");
 const popupBtn = document.querySelector(".edit-button");
 const popupClose = document.querySelector (".popup__close-button");
@@ -14,6 +15,15 @@ const placeForm = popupPlace.querySelector(".popup-form");
 const list = document.querySelector(".places__container");
 const placeTemplate = document.querySelector('#place-item-template');
 const placeTemplateitem = placeTemplate.content.children[0];
+const placeElement = placeTemplateitem.cloneNode(true);
+const placeNaming = placeElement.querySelector('.places__name');
+const placePhoto = placeElement.querySelector('.places__image');
+const placeDlt = placeElement.querySelector('.delete-button');
+const likeBtn = placeElement.querySelector('.like-button');
+const imgPopup = document.querySelector('.photo-popup__open');
+const photoPopup = document.querySelector('.photo-popup__image');
+const photoPopupName = document.querySelector('.photo-popup__name')
+const photoPopupClose = document.querySelector('.photo-popup__close')
 const initialCards = [
   {
     name: 'Белград',
@@ -70,37 +80,49 @@ function formSubmitHandler (evt) {
   you.textContent = nameInput.value;
   job.textContent = jobInput.value;
   closePopup();
-}
+};
 popup.addEventListener('submit', formSubmitHandler);
 
-function addPlace(name, link) {
+function place(name, link) {
   const placeElement = placeTemplateitem.cloneNode(true);
   const placeNaming = placeElement.querySelector('.places__name');
   const placePhoto = placeElement.querySelector('.places__image');
   const placeDlt = placeElement.querySelector('.delete-button');
-  const placeLike = placeElement.querySelector('.like-button');
+  const likeBtn = placeElement.querySelector('.like-button');
   placeNaming.textContent = name;
   placePhoto.src = link;
   placePhoto.alt = name;
-  placeDlt.addEventListener('click', function(){
+  placeDlt.addEventListener('click', function deletePlace(){
     placeElement.remove()
   })
+  likeBtn.addEventListener('click', function(){
+    likeBtn.classList.toggle('like-buttton_active')
+  })
   list.prepend(placeElement);
+  placePhoto.addEventListener("click", function popupImage() {
+    imgPopup.classList.add('popup_open');
+    photoPopup.src = placePhoto.src;
+   photoPopupName.textContent = placeNaming.textContent;
+   photoPopupName.textContent = placePhoto.alt;
+  });
 }
 
-function addEventListener() {
+photoPopupClose.addEventListener ("click", function popupImageClose() {
+  imgPopup.classList.remove('popup_open');
+});
+
+function addPlace() {
   placeForm.addEventListener('submit', function(evt) {
     evt.preventDefault();
-    addPlace(placeName.value, placeLink.value);
+    place(placeName.value, placeLink.value);
     closePopupPlace();
     placeForm.reset()
   })
-}
-addEventListener();
-
+};
+addPlace();
 function createinitialCards() {
   initialCards.map(function(el){
-    addPlace(el.name, el.link);
+    place(el.name, el.link);
   })
 };
 createinitialCards();
