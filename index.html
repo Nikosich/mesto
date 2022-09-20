@@ -35,9 +35,9 @@
           aria-label="добавить новое фото"
         ></button>
       </section>
-      <section class="places">
+      <div class="places">
         <ul class="places__container"></ul>
-      </section>
+      </div>
     </main>
     <footer class="footer">
       <p class="footer__text">&copy; 2020 Mesto Russia</p>
@@ -78,7 +78,7 @@
           />
           <input
             class="popup-form__input_link_photo popup-form__input"
-            type="link"
+            type="text"
             placeholder="Ссылка на картинку"
           />
           <button class="popup-form__save-button" type="submit">
@@ -107,6 +107,15 @@
         </div>
       </li>
     </template>
-    <div class="photo-popup__open"><div class="photo-popup"><img class="photo-popup__image" src="images/travnik.jpg" alt=""><button type="button" class="photo-popup__close button"></button><h3 class="photo-popup__name"></h3></div></div>
+    <div class="photo-popup__open">
+      <div class="photo-popup">
+        <img
+          class="photo-popup__image"
+          src="images/travnik.jpg"
+          alt=""
+        /><button type="button" class="photo-popup__close button"></button>
+        <h3 class="photo-popup__name">name</h3>
+      </div>
+    </div>
   </body>
 </html>
