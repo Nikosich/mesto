@@ -1,7 +1,13 @@
-.photo-popup{
-  max-width: 75vw;
-  max-height: 75vh;
-  padding:0;
-  position:relative;
+.photo-popup {
+  position:fixed;
+  width:100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
 }
-
