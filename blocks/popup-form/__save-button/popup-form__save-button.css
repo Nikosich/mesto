@@ -9,12 +9,12 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  border: none;
 }
 .popup-form__save-button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+
 @media screen and (max-width:768px) {
   .popup-form__save-button {
     width: 238px;

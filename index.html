@@ -44,19 +44,36 @@
     </footer>
     <div class="popup-profile">
       <div class="popup-profile__modal-window">
-        <button type="button" class="popup-profile__close-button button"></button>
-        <form class="popup-form" name="profileForm" method="post">
+        <button
+          type="button"
+          class="popup-profile__close-button button"
+        ></button>
+        <form class="popup-form" name="profileForm" method="post" novalidate>
           <h2 class="popup-form__header">Редактировать профиль</h2>
-          <input
-            class="popup-form__input_text_name popup-form__input"
-            type="text"
-            placeholder="Имя"
-          />
-          <input
-            class="popup-form__input_text_job popup-form__input"
-            type="text"
-            placeholder="О себе"
-          />
+          <label class="popup-form__field">
+            <input
+              class="popup-form__input_text_name popup-form__input"
+              type="text"
+              placeholder="Имя"
+              required
+              minlength="2"
+              maxlength="40"
+              id="name-input"
+            />
+            <span class="popup-form__input-error name-input-error"></span>
+          </label>
+          <label class="popup-form__field">
+            <input
+              class="popup-form__input_text_job popup-form__input"
+              type="text"
+              placeholder="О себе"
+              required
+              minlength="2"
+              maxlength="200"
+              id="about-input"
+            />
+            <span class="popup-form__input-error about-input-error"></span>
+          </label>
           <button class="popup-form__save-button" type="submit">
             Сохранить
           </button>
@@ -65,25 +82,32 @@
     </div>
     <div class="popup-place">
       <div class="popup-place__modal-window">
-        <button
-          type="button"
-          class="popup-place__close-button button"
-        ></button>
-        <form class="popup-form" name="photoForm" method="post">
+        <button type="button" class="popup-place__close-button button"></button>
+        <form class="popup-form" name="photoForm" method="post" novalidate>
           <h2 class="popup-form__header">Новое место</h2>
-          <input
-            class="popup-form__input_place_name popup-form__input"
-            type="text"
-            placeholder="Название"
-          />
-          <input
-            class="popup-form__input_link_photo popup-form__input"
-            type="text"
-            placeholder="Ссылка на картинку"
-          />
-          <button class="popup-form__save-button" type="submit">
-            Сохранить
-          </button>
+          <label class="popup-form__field">
+            <input
+              class="popup-form__input_place_name popup-form__input"
+              type="text"
+              placeholder="Название"
+              required
+              minlength="2"
+              maxlength="30"
+              id="place-input"
+            />
+            <span class="popup-form__input-error place-input-error"></span>
+          </label>
+          <label class="popup-form__field">
+            <input
+              class="popup-form__input_link_photo popup-form__input"
+              placeholder="Ссылка на картинку"
+              type="url"
+              required
+              id="link-input"
+            />
+            <span class="popup-form__input-error link-input-error"></span>
+          </label>
+          <button class="popup-form__save-button" type="submit">Создать</button>
         </form>
       </div>
     </div>
@@ -104,9 +128,10 @@
             aria-pressed="false"
           ></button>
         </div>
-      </li>+
+      </li>
+      +
     </template>
-    <div class="photo-popup">
+    <div class="photo-popup popup">
       <div class="photo-popup__open">
         <img
           class="photo-popup__image"
@@ -117,5 +142,6 @@
       </div>
     </div>
     <script src="scripts/index.js" defer></script>
+    <script src="scripts/validate.js" defer></script>
   </body>
 </html>

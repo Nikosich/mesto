@@ -1,0 +1,12 @@
+.popup-form__field {
+  position: relative;
+  width: calc(100% - 36px*2);
+  align-self: center;
+}
+
+.popup-form__field:first-of-type {
+  margin-bottom: 30px;
+}
+.popup-form__field:last-of-type {
+  margin-bottom: 48px;
+}
