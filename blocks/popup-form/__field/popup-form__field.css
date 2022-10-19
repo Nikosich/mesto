@@ -10,3 +10,14 @@
 .popup-form__field:last-of-type {
   margin-bottom: 48px;
 }
+
+@media screen and (max-width: 768px) {
+  .popup-form__field {
+    width: calc(100% - 22px*2);
+  }
+}
+@media screen and (max-width:768px) {
+  .popup-form__field:last-of-type {
+    margin-bottom: 45px;
+  }
+}
