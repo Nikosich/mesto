@@ -18,6 +18,19 @@ const imgPopup = document.querySelector(".photo-popup");
 const photoPopup = document.querySelector(".photo-popup__image");
 const photoPopupName = document.querySelector(".photo-popup__name");
 const photoPopupClose = document.querySelector(".photo-popup__close");
+const inputList = Array.from(
+  placeForm.querySelectorAll(".popup-form__input")
+);
+const settings = {
+    formSelector: ".popup-form",
+    inputSelector: ".popup-form__input",
+    submitButtonSelector: ".popup-form__save-button",
+    inactiveButtonClass: "popup-form__save-button_disabled",
+    inputErrorClass: "popup-form__input_type-error",
+    errorClass: "popup-form__input-error_active"
+}
+
+const buttonElement = placeForm.querySelector(".popup-form__save-button");
 const initialCards = [
   {
     name: "Белград",
@@ -57,7 +70,7 @@ function closePopup(popup) {
 }
 
 function openProfilePopup() {
-  popupProfile.classList.add("popup-open");
+  openPopup(popupProfile);
   nameInput.value = you.textContent;
   jobInput.value = job.textContent;
   document.addEventListener("keydown", closePopupEsc);
@@ -106,7 +119,7 @@ function createPlace(name, link) {
   placePhoto.addEventListener("click", openPopupImage);
 
   function openPopupImage() {
-    imgPopup.classList.add("popup-open");
+    openPopup(imgPopup);
     photoPopup.src = placePhoto.src;
     photoPopupName.textContent = placeNaming.textContent;
     photoPopupName.textContent = placePhoto.alt;
@@ -123,18 +136,16 @@ function renderPlace(name, link, container) {
   container.prepend(place);
 }
 
-function addPlace() {
-  const inputList = Array.from(
-    placeForm.querySelectorAll(".popup-form__input")
-  );
-  const buttonElement = placeForm.querySelector(".popup-form__save-button");
-  placeForm.addEventListener("submit", function (evt) {
+function addPlace(evt) {
     evt.preventDefault();
+
     renderPlace(placeName.value, placeLink.value, list);
+
     closePopup(popupPlace);
+
     placeForm.reset();
-    toggleButtonState(inputList, buttonElement);
-  });
+
+    toggleButtonState(inputList, buttonElement, settings);
 }
 
 function createInitialCards() {
@@ -155,6 +166,6 @@ popupProfile.addEventListener("submit", submitProfileForm);
 
 photoPopupClose.addEventListener("click", () => closePopup(imgPopup));
 
-addPlace();
+placeForm.addEventListener("submit", addPlace);
 
 createInitialCards();

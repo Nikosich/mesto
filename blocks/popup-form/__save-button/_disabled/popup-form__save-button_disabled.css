@@ -1,4 +1,4 @@
-.popup-form__save-button_inactive {
+.popup-form__save-button_disabled {
   border-color: black;
   border-radius: 1px;
   opacity: 0.2;
@@ -6,7 +6,7 @@
   color: rgba(0, 0, 0, 1);
   cursor: default;
 }
-.popup-form__save-button_inactive:hover {
+.popup-form__save-button_disabled:hover {
   cursor: default;
   opacity: 0.2;
 }
