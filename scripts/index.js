@@ -73,8 +73,6 @@ function openProfilePopup() {
   openPopup(popupProfile);
   nameInput.value = you.textContent;
   jobInput.value = job.textContent;
-  document.addEventListener("keydown", closePopupEsc);
-  popupProfile.addEventListener("mousedown", closePopupOverlay);
 }
 
 function submitProfileForm(evt) {
@@ -123,8 +121,6 @@ function createPlace(name, link) {
     photoPopup.src = placePhoto.src;
     photoPopupName.textContent = placeNaming.textContent;
     photoPopupName.textContent = placePhoto.alt;
-    document.addEventListener("keydown", closePopupEsc);
-    imgPopup.addEventListener("mousedown", closePopupOverlay);
   }
 
   return placeElement;
