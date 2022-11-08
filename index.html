@@ -48,7 +48,7 @@
           type="button"
           class="popup-profile__close-button button"
         ></button>
-        <form class="popup-form" name="profileForm" method="post" novalidate>
+        <form class="popup-form popup-form_profile" name="profileForm" method="post" novalidate>
           <h2 class="popup-form__header">Редактировать профиль</h2>
           <label class="popup-form__field">
             <input
@@ -83,7 +83,7 @@
     <div class="popup-place">
       <div class="popup-place__modal-window">
         <button type="button" class="popup-place__close-button button"></button>
-        <form class="popup-form" name="photoForm" method="post" novalidate>
+        <form class="popup-form popup-form_place" name="photoForm" method="post" novalidate>
           <h2 class="popup-form__header">Новое место</h2>
           <label class="popup-form__field">
             <input
@@ -111,7 +111,7 @@
         </form>
       </div>
     </div>
-    <template id="place-item-template">
+    <template id="place-item-template" class="place-item-template">
       <li class="places__item">
         <button
           type="button"
@@ -141,7 +141,6 @@
         <h3 class="photo-popup__name">name</h3>
       </div>
     </div>
-    <script src="scripts/index.js" defer></script>
-    <script src="scripts/validate.js" defer></script>
+    <script type="module" src="scripts/index.js" defer></script>
   </body>
 </html>
