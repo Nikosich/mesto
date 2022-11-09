@@ -1,11 +1,8 @@
 
-import {openPopup} from './index.js';
-import {closePopup} from './index.js';
-
-const imgPopup = document.querySelector(".photo-popup");
-const photoPopup = document.querySelector(".photo-popup__image");
-const photoPopupName = document.querySelector(".photo-popup__name");
-const photoPopupClose = document.querySelector(".photo-popup__close");
+import {openPopup} from './openPopup.js';
+import {photoPopup} from './index.js';
+import {imgPopup} from './index.js';
+import {photoPopupName} from './index.js';
 
 export class Card {
   constructor (name, link, templateSelector){
@@ -24,15 +21,17 @@ export class Card {
   }
   generateCard() {
     this._element = this._getTemplate();
+    this._image = this._element.querySelector('.places__image');
     this._setEventListeners();
-    this._element.querySelector('.places__image').src = this._link;
-    this._element.querySelector('.places__image').alt = this._name;
+    this._image.src = this._link;
+    this._image.alt = this._name;
     this._element.querySelector('.places__name').textContent = this._name;
     return this._element;
   }
 
   _deletePlace() {
     this._element.remove();
+    this._element = null;
   }
 
   _like() {
@@ -40,10 +39,10 @@ export class Card {
   }
 
   _openPopupImage() {
+    photoPopup.src =  this._link;
+    photoPopup.alt = this._name;
+    photoPopupName.textContent = this._name;
     openPopup(imgPopup);
-    photoPopup.src = this._element.querySelector('.places__image').src;
-    photoPopup.alt = this._element.querySelector('.places__name').textContent;
-    photoPopupName.textContent = this._element.querySelector('.places__name').textContent;
   }
 
   _setEventListeners() {
@@ -51,9 +50,9 @@ export class Card {
 
     this._element.querySelector('.like-button').addEventListener("click", () => {this._like()});
 
-    this._element.querySelector('.places__image').addEventListener('click', () => { this._openPopupImage()});
+    this._image.addEventListener('click', () => { this._openPopupImage()});
 
-    photoPopupClose.addEventListener('click', () => { closePopup(imgPopup) });
+
   }
 
 };

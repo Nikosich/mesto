@@ -2,6 +2,7 @@ import { Card } from './Card.js'
 import {initialCards} from './initialCards.js';
 import {FormValidator} from './FormValidator.js';
 import {settings} from './FormValidator.js';
+import {openPopup} from './openPopup.js';
 
 const popupProfile = document.querySelector(".popup-profile");
 const popupBtn = document.querySelector(".edit-button");
@@ -17,21 +18,17 @@ const popupBtnPlace = document.querySelector(".add-button");
 const popupClosePlace = document.querySelector(".popup-place__close-button");
 const placeForm = popupPlace.querySelector(".popup-form");
 const list = document.querySelector(".places__container");
-const imgPopup = document.querySelector(".photo-popup");
 const photoPopupClose = document.querySelector(".photo-popup__close");
 const popupFormProfile = document.querySelector(".popup-form_profile");
 const popupFormPlace = document.querySelector(".popup-form_place");
+export const imgPopup = document.querySelector(".photo-popup");
+export const photoPopup = document.querySelector(".photo-popup__image");
+export const photoPopupName = document.querySelector(".photo-popup__name");
 
 
 
-
-export function openPopup(popup) {
-  popup.classList.add("popup-open");
-  document.addEventListener("keydown", closePopupEsc);
-  popup.addEventListener("mousedown", closePopupOverlay);
-}
 export function closePopup(popup) {
-  popup.classList.remove("popup-open");
+  popup.classList.remove("popup_open");
   document.removeEventListener("keydown", closePopupEsc);
   popup.removeEventListener("mousedown", closePopupOverlay);
 }
@@ -54,7 +51,7 @@ function submitProfileForm(evt) {
 
 function closePopupEsc(evt) {
   if (evt.key === "Escape") {
-    const popup = document.querySelector(".popup-open");
+    const popup = document.querySelector(".popup_open");
     closePopup(popup);
   }
 }
@@ -65,11 +62,7 @@ function closePopupOverlay(evt) {
   }
 }
 
-function renderPlace(name, link, container) {
-  const newCard = new Card (name, link, '#place-item-template');
-  const cardElement = newCard.generateCard();
-  container.prepend(cardElement);
-}
+
 
 function addPlace(evt) {
     evt.preventDefault();
@@ -84,15 +77,22 @@ function addPlace(evt) {
 
 }
 
-initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, '.place-item-template');
+function renderPlace(name, link, container) {
+  const newCard = new Card (name, link, '#place-item-template');
+  const cardElement = newCard.generateCard();
+  container.prepend(cardElement);
+};
 
-  const placeElement = card.generateCard();
+function createInitialCards() {
+  initialCards.map(function (el) {
 
-  list.prepend(placeElement);
+    renderPlace(el.name, el.link, list);
 
-  closePopup(popupPlace);
-})
+  });
+
+}
+
+
 
 const validationProfile = new FormValidator(settings,popupFormProfile);
 
@@ -116,4 +116,4 @@ photoPopupClose.addEventListener("click", () => closePopup(imgPopup));
 
 placeForm.addEventListener("submit", addPlace);
 
-
+createInitialCards()

@@ -42,11 +42,11 @@
     <footer class="footer">
       <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup-profile">
-      <div class="popup-profile__modal-window">
+    <div class="popup popup-profile">
+      <div class="popup__modal-window popup-profile__modal-window">
         <button
           type="button"
-          class="popup-profile__close-button button"
+          class="popup__close-button popup-profile__close-button button"
         ></button>
         <form class="popup-form popup-form_profile" name="profileForm" method="post" novalidate>
           <h2 class="popup-form__header">Редактировать профиль</h2>
@@ -80,9 +80,9 @@
         </form>
       </div>
     </div>
-    <div class="popup-place">
-      <div class="popup-place__modal-window">
-        <button type="button" class="popup-place__close-button button"></button>
+    <div class="popup popup-place">
+      <div class="popup__modal-window popup-place__modal-window">
+        <button type="button" class="popup__close-button popup-place__close-button button"></button>
         <form class="popup-form popup-form_place" name="photoForm" method="post" novalidate>
           <h2 class="popup-form__header">Новое место</h2>
           <label class="popup-form__field">
@@ -132,13 +132,13 @@
       +
     </template>
     <div class="photo-popup popup">
-      <div class="photo-popup__open">
+      <div class="photo-popup__open pic-fullscrean">
         <img
-          class="photo-popup__image"
+          class="photo-popup__image pic-fullscrean__image"
           src="images/travnik.jpg"
           alt=""
-        /><button type="button" class="photo-popup__close button"></button>
-        <h3 class="photo-popup__name">name</h3>
+        /><button type="button" class="photo-popup__close popup__close-button button"></button>
+        <h3 class="photo-popup__name pic-fullscrean__name">name</h3>
       </div>
     </div>
     <script type="module" src="scripts/index.js" defer></script>
