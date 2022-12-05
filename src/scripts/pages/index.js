@@ -13,8 +13,6 @@ import {
   placeForm,
   nameInput,
   jobInput,
-  placeName,
-  placeLink,
 } from "../utils/consts.js";
 import "./index.css"
 
