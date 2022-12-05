@@ -5,7 +5,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import { initialCards } from "../utils/initialCards.js";
-import { settings } from "../components/FormValidator.js";
+import { settings } from "../utils/consts.js";
 import {
   popupProfile,
   popupBtn,
@@ -24,10 +24,10 @@ const userInfo = new UserInfo({
 });
 
 const profilePopup = new PopupWithForm("#popup-profile", {
-  handleFormSubmit: () => {
+  handleFormSubmit: (profile) => {
     userInfo.setUserInfo({
-      name: nameInput.value,
-      job: jobInput.value,
+      name: profile.name,
+      job: profile.job,
     });
     profilePopup.close();
   },
@@ -49,9 +49,9 @@ const renderCards = new Section(
 );
 
 const popupFormPlace = new PopupWithForm("#popup-place", {
-  handleFormSubmit: () => {
+  handleFormSubmit: (formValues) => {
     renderCards.addItem(
-      renderCard({ name: placeName.value, link: placeLink.value })
+      renderCard({ name: formValues.place, link: formValues.placelink })
     );
     popupFormPlace.close();
     validationPlace.toggleButtonState();
@@ -71,8 +71,8 @@ popupBtnPlace.addEventListener("click", function () {
 popupBtn.addEventListener("click", function () {
   profilePopup.open();
   const newUserInfo = userInfo.getUserInfo();
-  nameInput.setAttribute("value", newUserInfo.name);
-  jobInput.setAttribute("value", newUserInfo.job);
+  nameInput.value = newUserInfo.name;
+  jobInput.value = newUserInfo.job;
 });
 
 const validationProfile = new FormValidator(settings, popupProfile);

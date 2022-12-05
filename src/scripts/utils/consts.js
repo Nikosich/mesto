@@ -10,4 +10,10 @@ const jobInput = document.querySelector(".popup-form__input_text_job");
 const placeName = document.querySelector(".popup-form__input_place_name");
 const placeLink = document.querySelector(".popup-form__input_link_photo");
 
-
+export const settings = {
+  inputSelector: ".popup-form__input",
+  submitButtonSelector: ".popup-form__save-button",
+  inactiveButtonClass: "popup-form__save-button_disabled",
+  inputErrorClass: "popup-form__input_type-error",
+  errorClass: "popup-form__input-error_active"
+}
