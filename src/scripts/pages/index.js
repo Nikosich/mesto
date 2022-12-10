@@ -16,6 +16,7 @@ import {
 } from "../utils/consts.js";
 import "./index.css"
 
+
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   jobSelector: ".profile__profession",
