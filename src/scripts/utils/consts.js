@@ -1,4 +1,4 @@
-export {popupProfile,popupBtn,popupBtnPlace,placeForm,nameInput,jobInput}
+export {popupProfile,popupBtn,popupBtnPlace,placeForm,nameInput,jobInput,popupAvatarBtn,avatar}
 
 const popupProfile = document.querySelector(".popup-profile");
 const popupBtn = document.querySelector(".edit-button");
@@ -7,6 +7,9 @@ const popupPlace = document.querySelector(".popup-place");
 const placeForm = popupPlace.querySelector(".popup-form");
 const nameInput = document.querySelector(".popup-form__input_text_name");
 const jobInput = document.querySelector(".popup-form__input_text_job");
+const popupAvatarBtn = document.querySelector('.profile__edit-button');
+const avatar = document.querySelector('.profile__image');
+
 
 export const settings = {
   inputSelector: ".popup-form__input",

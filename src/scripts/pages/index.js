@@ -4,7 +4,7 @@ import Card from "../components/Card.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import { initialCards } from "../utils/initialCards.js";
+import PopupVerification from "../components/PopupVerification.js";
 import { settings } from "../utils/consts.js";
 import {
   popupProfile,
@@ -13,58 +13,151 @@ import {
   placeForm,
   nameInput,
   jobInput,
+  popupAvatarBtn,
+  avatar
 } from "../utils/consts.js";
-import "./index.css"
+import "./index.css";
+import {api} from '../components/Api.js';
 
 
-const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  jobSelector: ".profile__profession",
-});
+let userId;
 
-const profilePopup = new PopupWithForm("#popup-profile", {
-  handleFormSubmit: (profile) => {
-    userInfo.setUserInfo({
-      name: profile.name,
-      job: profile.job,
-    });
-    profilePopup.close();
-  },
-});
 
-const renderCard = function (card) {
-  const newCard = new Card(card, handleCardClick, "#place-item-template");
-  return newCard.generateCard();
-};
 
-const renderCards = new Section(
-  {
-    items: initialCards,
-    renderer: (card) => {
-      renderCards.addItem(renderCard(card));
+Promise.all([api.getInitialCards(), api.getProfile()])
+  .then(([Initialcards, userData]) => {
+    userId = userData._id;
+    userInfo.setUserInfo(userData);
+    renderCards.renderItems(Initialcards);
+  })
+  .catch((err) => {
+  console.log(`Error: ${err}`);
+  });
+
+
+  const userInfo = new UserInfo({
+    nameSelector: ".profile__name",
+    jobSelector: ".profile__profession",
+    avatarSelector: ".profile__image"
+  });
+
+
+  const profilePopup = new PopupWithForm("#popup-profile", {
+    handleFormSubmit: (dataProfile) => {
+      profilePopup.loading(true);
+      api.editProfile(dataProfile)
+      .then((dataProfile) => {
+        userInfo.setUserInfo(dataProfile)
+        profilePopup.close();
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`)
+      })
+      .finally(() => {
+        profilePopup.loading(false);
+      })
+    }
+  });
+
+  const renderCard = (data) => {
+
+  const newCard = new Card(data,"#place-item-template",userId, data._id, data.owner._id,
+    {handleCardClick: (name, image) => {
+      popupImage.open(name, image);
     },
-  },
-  "#places__container"
-);
+    handleDeleteClick: (card, cardId) => {
+      deletePlacePopup.open(card, cardId);
+    },
+    handleLikeClick: (cardId) => {
+      api.like(cardId)
+      .then((data) => {
+        newCard.handleLikeCard(data)
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`)
+      });
+    },
+    handleRemoveLike: (cardId) => {
+      api.removeLike(cardId)
+      .then((data) => {
+        newCard.handleLikeCard(data);
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`)
+      });
+    }
+  });
+  const card = newCard.generateCard();
+  return card;
+  };
+
+
+
+
+  const renderCards = new Section(
+    {
+      renderer: (data) => {
+        renderCards.addItem(renderCard(data));
+      },
+    },
+    "#places__container"
+  );
+
+const deletePlacePopup = new PopupVerification("#popup-delete", {
+  callback: (card, cardId) => { api.deleteCard(cardId)
+      .then(() => {
+        card.deleteCard();
+        deletePlacePopup.close();
+      })
+      .catch((err) => { console.log(`Error ${err}`) })
+  }
+});
 
 const popupFormPlace = new PopupWithForm("#popup-place", {
-  handleFormSubmit: (formValues) => {
-    renderCards.addItem(
-      renderCard({ name: formValues.place, link: formValues.placelink })
-    );
-    popupFormPlace.close();
-    validationPlace.toggleButtonState();
-  },
+  handleFormSubmit: (formData) => {
+    popupFormPlace.loading(true);
+    api.addCard(formData)
+    .then((formData) => {
+      renderCards.addItem(renderCard(formData));
+      popupFormPlace.close();
+      validationPlace.toggleButtonState();
+    })
+    .catch((err) =>{
+      console.log(`Form error: ${err}`);
+    })
+    .finally (() => {
+      popupFormPlace.loading(false);
+    })
+  }
 });
 
 const popupImage = new PopupWithImage("#photo-popup");
-const handleCardClick = function (name, image) {
-  popupImage.open(name, image);
-};
+
+
+const avatarPopup = new PopupWithForm("#popup-avatar",{
+  handleFormSubmit: (data) => {
+    avatarPopup.loading(true);
+    api.changeAvatar(data)
+      .then((data) => {
+        avatar.src = data.avatar;
+        avatarPopup.close();
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      })
+      .finally(() => {
+        avatarPopup.loading(false);
+      });
+  }
+});
+
+popupAvatarBtn.addEventListener("click", function(){
+  avatarPopup.open()
+});
 
 popupBtnPlace.addEventListener("click", function () {
   popupFormPlace.open();
-  validationProfile.toggleButtonState();
+  validationPlace.toggleButtonState();
 });
 
 popupBtn.addEventListener("click", function () {
@@ -86,6 +179,10 @@ popupImage.setEventListeners();
 
 profilePopup.setEventListeners();
 
+avatarPopup.setEventListeners();
+
 popupFormPlace.setEventListeners();
 
-renderCards.renderItems();
+deletePlacePopup.setEventListeners();
+
+
