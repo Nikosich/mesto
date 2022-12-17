@@ -1,18 +1,20 @@
 import Popup from "./Popup.js";
 
 export default class PopupVerification extends Popup {
-  constructor(popupSelector, {callback}) {
+  constructor(popupSelector) {
     super(popupSelector);
-    this._submitButton = this._popup.querySelector('.popup-form');
-    this._callback = callback;
+    this._form = this._popup.querySelector('.popup-form');
   }
-  open(card, cardId) {
-    this._card = card;
-    this._сardid = cardId;
-    super.open();
+
+  callback(remove) {
+    this._submit = remove;
   }
+
   setEventListeners() {
-    this._submitButton.addEventListener('submit', (evt) => { evt.preventDefault(); this._callback(this._card, this._cardId) })
     super.setEventListeners();
+    this._form.addEventListener('click', (event) => {
+      event.preventDefault();
+      this._submit();
+    });
   }
 }
