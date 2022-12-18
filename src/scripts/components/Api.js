@@ -4,11 +4,19 @@ class Api {
     this._baseUrl = baseUrl;
   }
 
+
+  _checkResponse(res) {
+    if (res.ok){
+      return res.json()
+    }
+    return Promise.reject(`Error: ${res.status}`)
+  }
+
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
     headers: this._headers
     })
-      .then(res => this._response(res));
+      .then(res => this._checkResponse(res));
   }
 
   addCard(data) {
@@ -17,10 +25,10 @@ class Api {
       headers:this._headers,
       body: JSON.stringify({
         name: data.place,
-        link: data.placelink
+        link: data.placeLink
       })
     })
-    .then (res => this._response(res))
+    .then (res => this._checkResponse(res))
   }
 
   like(cardId) {
@@ -28,14 +36,14 @@ class Api {
     method: 'PUT',
     headers: this._headers}
     )
-    .then(res => this._response(res))
+    .then(res => this._checkResponse(res))
   }
 
   removeLike(cardId) { return fetch(`${this._baseUrl}/cards/${cardId}/likes`,{
     method: 'DELETE',
     headers: this._headers
   })
-  .then(res => this._response(res))
+  .then(res => this._checkResponse(res))
   }
 
   deleteCard(cardId) {
@@ -43,20 +51,14 @@ class Api {
       headers: this._headers,
       method: 'DELETE'
     })
-    .then(res => this._response(res))
-  }
-  _response(res) {
-    if (res.ok){
-      return res.json()
-    }
-    return Promise.reject(`Error: ${res.status}`)
+    .then(res => this._checkResponse(res))
   }
 
   getProfile(){
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-      .then(res => this._response(res));
+      .then(res => this._checkResponse(res));
   }
 
   editProfile(data) {
@@ -68,7 +70,7 @@ class Api {
         about: data.job
       })
     })
-    .then(res => this._response(res))
+    .then(res => this._checkResponse(res))
   }
 
   changeAvatar(data) {
@@ -79,7 +81,7 @@ class Api {
         avatar: data.avatar
       })
     })
-    .then(res => this._response(res))
+    .then(res => this._checkResponse(res))
   }
 }
 
@@ -90,6 +92,7 @@ export const api = new Api({
     'Content-Type': 'application/json'
   }
 })
+
 
 
 

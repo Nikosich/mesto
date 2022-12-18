@@ -14,7 +14,7 @@ import {
   nameInput,
   jobInput,
   popupAvatarBtn,
-  avatar,
+  avatarForm
 } from "../utils/consts.js";
 import "./index.css";
 import { api } from "../components/Api.js";
@@ -22,10 +22,10 @@ import { api } from "../components/Api.js";
 let userId;
 
 Promise.all([api.getInitialCards(), api.getProfile()])
-  .then(([Initialcards, userData]) => {
+  .then(([InitialCards, userData]) => {
     userId = userData._id;
     userInfo.setUserInfo(userData);
-    renderCards.renderItems(Initialcards);
+    renderCards.renderItems(InitialCards);
   })
   .catch((err) => {
     console.log(`Error: ${err}`);
@@ -125,7 +125,6 @@ const popupFormPlace = new PopupWithForm("#popup-place", {
       .then((formData) => {
         renderCards.addItem(renderCard(formData));
         popupFormPlace.close();
-        validationPlace.toggleButtonState();
       })
       .catch((err) => {
         console.log(`Form error: ${err}`);
@@ -144,7 +143,7 @@ const avatarPopup = new PopupWithForm("#popup-avatar", {
     api
       .changeAvatar(data)
       .then((data) => {
-        avatar.src = data.avatar;
+        userInfo.setUserInfo(data);
         avatarPopup.close();
       })
       .catch((err) => {
@@ -158,6 +157,7 @@ const avatarPopup = new PopupWithForm("#popup-avatar", {
 
 popupAvatarBtn.addEventListener("click", function () {
   avatarPopup.open();
+  validationAvatar.toggleButtonState();
 });
 
 popupBtnPlace.addEventListener("click", function () {
@@ -175,6 +175,10 @@ popupBtn.addEventListener("click", function () {
 const validationProfile = new FormValidator(settings, popupProfile);
 
 const validationPlace = new FormValidator(settings, placeForm);
+
+const validationAvatar = new FormValidator(settings,avatarForm);
+
+validationAvatar.enableValidation();
 
 validationProfile.enableValidation();
 

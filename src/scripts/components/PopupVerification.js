@@ -3,7 +3,7 @@ import Popup from "./Popup.js";
 export default class PopupVerification extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
-    this._form = this._popup.querySelector('.popup-form');
+    this._form = this._popup.querySelector(".popup-form");
   }
 
   callback(remove) {
@@ -12,7 +12,7 @@ export default class PopupVerification extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener('click', (event) => {
+    this._form.addEventListener("submit", (event) => {
       event.preventDefault();
       this._submit();
     });
